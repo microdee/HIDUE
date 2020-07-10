@@ -5,12 +5,12 @@
 	"FriendlyName": "HIDUE",
 	"Description": "Simple wrapper plugin for HIDAPI, in case multiple plugins in the project want to use the library",
 	"Category": "other",
-	"CreatedBy": "David Mórász",
+	"CreatedBy": "microdee",
 	"CreatedByURL": "http://mcro.de",
-	"DocsURL": "",
+	"DocsURL": "https://github.com/microdee/HIDUE",
 	"MarketplaceURL": "",
-	"SupportURL": "",
-	"CanContainContent": true,
+	"SupportURL": "https://github.com/microdee/HIDUE/issues",
+	"CanContainContent": false,
 	"IsBetaVersion": false,
 	"IsExperimentalVersion": false,
 	"Installed": false,
@@ -18,7 +18,7 @@
 		{
 			"Name": "HIDUE",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "PreDefault"
 		}
 	]
 }
