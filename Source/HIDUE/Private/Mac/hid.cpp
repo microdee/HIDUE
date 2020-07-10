@@ -20,6 +20,9 @@
         https://github.com/libusb/hidapi .
 ********************************************************/
 
+#include "CoreMinimal.h"
+#if PLATFORM_MAC
+
 /* See Apple Technical Note TN2187 for details on IOHidManager. */
 
 #include <IOKit/hid/IOHIDManager.h>
@@ -1236,4 +1239,6 @@ int main(void)
 
 	return 0;
 }
+#endif
+
 #endif

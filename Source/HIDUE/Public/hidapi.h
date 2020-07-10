@@ -24,6 +24,8 @@
  * @defgroup API hidapi API
  */
 
+#pragma once
+
 #ifndef HIDAPI_H__
 #define HIDAPI_H__
 

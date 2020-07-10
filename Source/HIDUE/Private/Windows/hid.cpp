@@ -20,6 +20,10 @@
         https://github.com/libusb/hidapi .
 ********************************************************/
 
+#include "CoreMinimal.h"
+#if PLATFORM_WINDOWS
+
+#include "Windows/AllowWindowsPlatformTypes.h"
 #include <windows.h>
 
 #ifndef _NTDEF_
@@ -182,7 +186,7 @@ static void register_error(hid_device *dev, const char *op)
 		NULL,
 		GetLastError(),
 		MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
-		(LPVOID)&msg, 0/*sz*/,
+		(LPWSTR)&msg, 0/*sz*/,
 		NULL);
 	
 	/* Get rid of the CR and LF that FormatMessage() sticks at the
@@ -401,7 +405,7 @@ struct hid_device_info HID_API_EXPORT * HID_API_CALL hid_enumerate(unsigned shor
 			struct hid_device_info *tmp;
 			PHIDP_PREPARSED_DATA pp_data = NULL;
 			HIDP_CAPS caps;
-			BOOLEAN res;
+			//BOOLEAN res;
 			NTSTATUS nt_res;
 			wchar_t wstr[WSTR_LEN]; /* TODO: Determine Size */
 			size_t len;
@@ -1016,4 +1020,6 @@ int __cdecl main(int argc, char* argv[])
 
 #ifdef __cplusplus
 } /* extern "C" */
+#endif
+
 #endif

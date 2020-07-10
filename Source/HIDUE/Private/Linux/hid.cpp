@@ -21,6 +21,9 @@
         https://github.com/libusb/hidapi .
 ********************************************************/
 
+#include "CoreMinimal.h"
+#if PLATFORM_LINUX
+
 /* C */
 #include <stdio.h>
 #include <string.h>
@@ -846,3 +849,5 @@ HID_API_EXPORT const wchar_t * HID_API_CALL  hid_error(hid_device *dev)
 		return L"Success";
 	return last_global_error_str;
 }
+
+#endif
