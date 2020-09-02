@@ -6,6 +6,7 @@ public class HIDUE : ModuleRules
 {
 	public HIDUE(ReadOnlyTargetRules Target) : base(Target)
 	{
+        PrecompileForTargets = PrecompileTargetsType.Any;
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 		bEnableUndefinedIdentifierWarnings = false;
 
