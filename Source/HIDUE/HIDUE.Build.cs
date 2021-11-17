@@ -12,8 +12,9 @@ public class HIDUE : ModuleRules
 
 
 		if (Target.Platform == UnrealTargetPlatform.Linux) {
-			PublicIncludePaths.AddRange(new string[] {
-				"/usr/include"
+			PrivateIncludePaths.AddRange(new string[] {
+				"/usr/include",
+				"/usr/include/x86_64-linux-gnu"
 			});
 			PublicSystemLibraries.Add("udev");
 			PublicSystemLibraryPaths.AddRange(new string[] {
