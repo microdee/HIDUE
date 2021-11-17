@@ -10,11 +10,21 @@ public class HIDUE : ModuleRules
 		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
 		bEnableUndefinedIdentifierWarnings = false;
 
-		PublicIncludePaths.AddRange(
-			new string[] {
-				// ... add public include paths required here ...
-			}
-			);
+
+		if (Target.Platform == UnrealTargetPlatform.Linux) {
+			PublicIncludePaths.AddRange(new string[] {
+				"/usr/include"
+			});
+			PublicSystemLibraries.Add("udev");
+			PublicSystemLibraryPaths.AddRange(new string[] {
+				"/usr/lib",
+				"/usr/lib/x86_64-linux-gnu",
+				"/usr/lib/aarch64-linux-gnu",
+				"/usr/local/lib",
+				"/usr/local/lib/x86_64-linux-gnu",
+				"/usr/local/lib/aarch64-linux-gnu"
+			});
+		}
 				
 		
 		PrivateIncludePaths.AddRange(
