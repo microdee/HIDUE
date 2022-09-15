@@ -12,11 +12,21 @@ public class HIDUE : ModuleRules
 		bEnableUndefinedIdentifierWarnings = false;
 		CppStandard = CppStandardVersion.Cpp17;
 
-		PublicIncludePaths.AddRange(
-			new string[] {
-				// ... add public include paths required here ...
-			}
-			);
+		if (Target.Platform == UnrealTargetPlatform.Linux) {
+			PublicIncludePaths.AddRange(new string[] {
+				"/usr/include"
+				"/usr/include/x86_64-linux-gnu"
+			});
+			PublicSystemLibraries.Add("udev");
+			PublicSystemLibraryPaths.AddRange(new string[] {
+				"/usr/lib",
+				"/usr/lib/x86_64-linux-gnu",
+				"/usr/lib/aarch64-linux-gnu",
+				"/usr/local/lib",
+				"/usr/local/lib/x86_64-linux-gnu",
+				"/usr/local/lib/aarch64-linux-gnu"
+			});
+		}
 				
 		
 		PrivateIncludePaths.AddRange(

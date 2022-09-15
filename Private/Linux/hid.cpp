@@ -22,7 +22,28 @@
 ********************************************************/
 
 #include "CoreMinimal.h"
+
 #if PLATFORM_LINUX
+/**
+ * Hack: We need to wrap these includes within an
+ *       anonymous namespace to work around an
+ *       unreal engine bug.
+ * 
+ * Bug: Unreal is getting confused between its reference to
+ * "Engine/Source/ThirdParty/Linux/LibCxx/include/c++/v1/"
+ *  and
+ * "Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/Linux_x64/v19_clang..."
+ * for includes such as 'locale.h'
+ */
+namespace
+{
+#ifdef LINUX_VERSION_CODE
+#undef LINUX_VERSION_CODE
+#endif
+#ifdef KERNEL_VERSION
+#undef KERNEL_VERSION
+#endif
+
 
 /* C */
 #include <stdio.h>
@@ -45,6 +66,8 @@
 #include <linux/version.h>
 #include <linux/input.h>
 #include <libudev.h>
+
+} // namespace
 
 #include "hidapi.h"
 
