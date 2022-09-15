@@ -1,4 +1,5 @@
-// MESO Digital Interiors GmbH. All rights reserved 2020
+// Copyright 2018-2021 David Morasz All Rights Reserved.
+// This source code is under MIT License https://github.com/microdee/UE4-SpaceMouse/blob/master/LICENSE
 
 using UnrealBuildTool;
 
@@ -7,13 +8,13 @@ public class HIDUE : ModuleRules
 	public HIDUE(ReadOnlyTargetRules Target) : base(Target)
 	{
         PrecompileForTargets = PrecompileTargetsType.Any;
-		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
+        PCHUsage = ModuleRules.PCHUsageMode.NoSharedPCHs;
 		bEnableUndefinedIdentifierWarnings = false;
-
+		CppStandard = CppStandardVersion.Cpp17;
 
 		if (Target.Platform == UnrealTargetPlatform.Linux) {
-			PrivateIncludePaths.AddRange(new string[] {
-				"/usr/include",
+			PublicIncludePaths.AddRange(new string[] {
+				"/usr/include"
 				"/usr/include/x86_64-linux-gnu"
 			});
 			PublicSystemLibraries.Add("udev");
