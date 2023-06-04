@@ -21,6 +21,8 @@
 ********************************************************/
 
 #include "CoreMinimal.h"
+
+#pragma warning( disable : 4191 )
 #if PLATFORM_WINDOWS
 
 #include "Windows/AllowWindowsPlatformTypes.h"
