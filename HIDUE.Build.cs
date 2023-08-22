@@ -11,10 +11,9 @@ public class HIDUE : ModuleRules
         bEnableUndefinedIdentifierWarnings = false;
         CppStandard = CppStandardVersion.Cpp17;
 
-        IsRedistributableOverride = true;
+        IsRedistributableOverride = true;;
         bLegalToDistributeObjectCode = true;
         bPrecompile = true;
-        bUsePrecompiled = true;
         PrecompileForTargets = PrecompileTargetsType.Any;
 
         if (Target.Platform == UnrealTargetPlatform.Linux) {
