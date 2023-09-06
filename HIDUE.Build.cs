@@ -36,13 +36,13 @@ public class HIDUE : ModuleRules
         PublicDependencyModuleNames.AddRange(new []
         {
             "Core",
+            "CoreUObject"
         });
             
         
         PrivateDependencyModuleNames.AddRange(new []
         {
-            "CoreUObject",
-            "Engine",
+            "Engine"
         });
     }
 }
