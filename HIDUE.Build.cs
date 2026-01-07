@@ -8,13 +8,13 @@ public class HIDUE : ModuleRules
     public HIDUE(ReadOnlyTargetRules Target) : base(Target)
     {
         PCHUsage = PCHUsageMode.NoPCHs;
+#if UE_5_6_OR_LATER
+        CppCompileWarningSettings.UndefinedIdentifierWarningLevel = WarningLevel.Off;
+#elif UE_5_5_OR_LATER
+        UndefinedIdentifierWarningLevel = WarningLevel.Off;
+#else
         bEnableUndefinedIdentifierWarnings = false;
-        CppStandard = CppStandardVersion.Cpp17;
-
-        IsRedistributableOverride = true;;
-        bLegalToDistributeObjectCode = true;
-        bPrecompile = true;
-        PrecompileForTargets = PrecompileTargetsType.Any;
+#endif
 
         if (Target.Platform == UnrealTargetPlatform.Linux) {
             PublicIncludePaths.AddRange(new [] {
